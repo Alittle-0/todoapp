@@ -1,0 +1,94 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  animation: slideIn 0.3s ease-out;
+}
+
+.task-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.task-description {
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+  padding-right: 15px;
+}
+
+.task-description.completed {
+  color: #6c757d;
+  opacity: 0.7;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.task-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 40px;
+}
+
+.complete-button {
+  background: #28a745;
+  color: white;
+}
+
+.complete-button:hover {
+  background: #218838;
+  transform: scale(1.1);
+}
+
+.delete-button {
+  background: #dc3545;
+  color: white;
+}
+
+.delete-button:hover {
+  background: #c82333;
+  transform: scale(1.1);
+}
+
+/* Animation for new tasks */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .task-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .task-description {
+    padding-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .task-buttons {
+    justify-content: center;
+  }
+}
