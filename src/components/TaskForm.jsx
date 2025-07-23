@@ -8,7 +8,8 @@ const TaskForm = ({ onAdd }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/api/tasks", {
+      const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3001";
+      await axios.post(`${apiUrl}/api/tasks`, {
         description,
         status: "pending",
       });

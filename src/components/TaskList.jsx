@@ -8,8 +8,9 @@ const TaskList = () => {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = () => {
+    const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3001";
     axios
-      .get("http://localhost:3001/api/tasks")
+      .get(`${apiUrl}/api/tasks`)
       .then((res) => setTasks(res.data))
       .catch((err) => console.error(err));
   };

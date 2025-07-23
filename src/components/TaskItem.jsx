@@ -3,9 +3,10 @@ import axios from "axios";
 import "./TaskItem.css";
 
 const TaskItem = ({ task, onUpdate }) => {
+  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3001";
   const markComplete = async () => {
     try {
-      await axios.put(`http://localhost:3001/api/tasks/${task._id}`, {
+      await axios.put(`${apiUrl}/api/tasks/${task._id}`, {
         ...task,
         status: "completed",
       });
@@ -18,7 +19,7 @@ const TaskItem = ({ task, onUpdate }) => {
 
   const deleteTask = async () => {
     try {
-      await axios.delete(`http://localhost:3001/api/tasks/${task._id}`);
+      await axios.delete(`${apiUrl}/api/tasks/${task._id}`);
       await onUpdate();
       alert("Task deleted successfully!");
     } catch (err) {
